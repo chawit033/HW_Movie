@@ -1,7 +1,4 @@
 import movieList from './movies.json'
-
-import icon from './icon.json'
-
 import './main.scss'
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -10,32 +7,29 @@ document.addEventListener('DOMContentLoaded', function() {
     insertMovie(movies,cards)
 })
 
-
 function insertMovie(movies,cards) {
     movies.forEach(movie => {
         let cardDOM = buildCardDOM(movie)
         cards.insertAdjacentHTML('beforeend', cardDOM)
     })
-
 }
         
-
 function buildCardDOM(movie) {
-  let IconScore = '';
+  let icon = '';
   let s = movie.tomatoScore;
   if (s < 60) {
-    IconScore += `<img class="icon" src="${icon[0].img}" alt="#" />`;
+    icon += `<img class="icon" src="https://staticv2-4.rottentomatoes.com/static/images/icons/splat-16.png" alt="#" />`;
   } else if (s >= 60 && s < 80) {
-    IconScore += `<img class="icon" src="${icon[1].img}" alt="#" />`;
+    icon += `<img class="icon" src="https://staticv2-4.rottentomatoes.com/static/images/icons/fresh-16.png" alt="#" />`;
   } else {
-    IconScore += `<img class="icon" src="${icon[2].img}" alt="#" />`;
+    icon += `<img class="icon" src="https://staticv2-4.rottentomatoes.com/static/images/icons/CF_16x16.png" alt="#" />`;
   }
   
   return `<div class="card">
             <img src="${movie.posters.primary}" alt="#" />
             <div class="movie-info">
                 <div class="title">${movie.title}</div>
-                <div class="iconScore">${IconScore}${movie.tomatoScore}%</div>
+                <div class="iconScore">${icon}${movie.tomatoScore}%</div>
                 <div class="date">available  ${movie.dvdReleaseDate}</div>
             </div>
           </div>`
