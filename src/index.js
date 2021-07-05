@@ -15,13 +15,15 @@ function insertMovie(movies,cards) {
 }
         
 function buildCardDOM(movie) {
-  let icon = '';
+  let icon = ''
   let s = movie.tomatoScore;
   if (s < 60) {
     icon += `<img class="icon" src="https://staticv2-4.rottentomatoes.com/static/images/icons/splat-16.png" alt="#" />`;
-  } else if (s >= 60 && s < 80) {
+  } 
+  else if (s >= 60 && s < 80) {
     icon += `<img class="icon" src="https://staticv2-4.rottentomatoes.com/static/images/icons/fresh-16.png" alt="#" />`;
-  } else {
+  } 
+  else {
     icon += `<img class="icon" src="https://staticv2-4.rottentomatoes.com/static/images/icons/CF_16x16.png" alt="#" />`;
   }
   
@@ -29,7 +31,7 @@ function buildCardDOM(movie) {
             <img src="${movie.posters.primary}" alt="#" />
             <div class="movie-info">
                 <div class="title">${movie.title}</div>
-                <div class="iconScore">${icon}${movie.tomatoScore}%</div>
+                <div class="iconScore">${icon} ${movie.tomatoScore}%</div>
                 <div class="date">available  ${movie.dvdReleaseDate}</div>
             </div>
           </div>`
